@@ -31,7 +31,7 @@ stuct_sprite ressource_sprite(stuct_rect rect, sfRenderWindow* window)
 {
     stuct_sprite sprite;
     sprite.duck = ruru_create_sprite_r("michel/sheet.png", 0, 0, rect.duck);
-    ressource_scale(sprite);
+    ressource_scale(sprite, window);
     return sprite;
 }
 
