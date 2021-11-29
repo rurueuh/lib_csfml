@@ -27,7 +27,7 @@ stuct_scale ressource_scale(stuct_sprite sprite)
     return scale;
 }
 
-stuct_sprite ressource_sprite(stuct_rect rect)
+stuct_sprite ressource_sprite(stuct_rect rect, sfRenderWindow* window)
 {
     stuct_sprite sprite;
     sprite.duck = ruru_create_sprite_r("michel/sheet.png", 0, 0, rect.duck);
@@ -35,9 +35,9 @@ stuct_sprite ressource_sprite(stuct_rect rect)
     return sprite;
 }
 
-stuct_clock ressource_clock(void)
+stuct_anim_duck ressource_anim_duck(void)
 {
-    stuct_clock clock;
+    stuct_anim_duck clock;
     clock.clock = sfClock_create();
     
     clock.duck_anim1 = ruru_create_intrect(28, 90 , 27, 17);

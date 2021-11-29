@@ -17,7 +17,7 @@ int main(void)
 {
     sfRenderWindow* window = ruru_create_window(1920, 1080, 144, sfTrue);
     sfEvent event;
-    stuct_sprite sprite = ressource_sprite(ressource_rect());
+    stuct_sprite sprite = ressource_sprite(ressource_rect(), window);
     stuct_clock clock = ressource_clock();
     if (startscreen(window, event) == 1)
         return 0;

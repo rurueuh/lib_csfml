@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include "../../include/mystruct.h"
 
-void ruru_anim_3_frames(stuct_clock clock, sfSprite* sprite, float time)
+void ruru_anim_3_frames(stuct_anim_duck clock, sfSprite* sprite, float time)
 {
     clock.time = sfClock_getElapsedTime(clock.clock);
     float sec = clock.time.microseconds / 1000000.0;

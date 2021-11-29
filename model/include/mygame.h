@@ -14,7 +14,7 @@
     int startscreen(sfRenderWindow* window, sfEvent event);
 
     stuct_rect ressource_rect(void);
-    stuct_clock ressource_clock(void);
-    stuct_sprite ressource_sprite(stuct_rect rect);
+    stuct_anim_duck ressource_anim_duck(void);
+    stuct_sprite ressource_sprite(stuct_rect rect, sfRenderWindow* window)
 
 #endif
