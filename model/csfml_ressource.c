@@ -18,7 +18,7 @@ stuct_rect ressource_rect(void)
     return rect;
 }
 
-stuct_scale ressource_scale(stuct_sprite sprite)
+stuct_scale ressource_scale(stuct_sprite sprite, sfRenderWindow window))
 {
     stuct_scale scale;
     scale.duck = ruru_create_vector2f(4, 4);
