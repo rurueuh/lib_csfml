@@ -32,6 +32,7 @@
     void ruru_draw_sprite(sfRenderWindow* window, int nombre_de_sprite, ...);
     
     void ruru_scale_sprite(sfSprite* sprite, float scale_x, float scale_y);
+    void ruru_scale_fullscreen(sfRenderWindow* window, sfSprite* sprite);
 
     sfFloatRect ruru_convert_intrect_to_floatrect(sfIntRect intrect);
     sfIntRect ruru_convert_floatrect_to_intrect(sfFloatRect intrect);
