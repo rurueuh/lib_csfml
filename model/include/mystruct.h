@@ -13,6 +13,10 @@
     
     typedef struct stuct_sprite {
         sfSprite* duck;
+        sfSprite* dog;
+        sfSprite* mouse;
+        sfSprite* map;
+        
     } stuct_sprite;
 
     typedef struct stuct_sound {
@@ -21,6 +25,7 @@
 
     typedef struct stuct_rect {
         sfIntRect duck;
+        sfIntRect dog;
     } stuct_rect;
 
     typedef struct stuct_anim_duck {
@@ -37,6 +42,7 @@
 
     typedef struct stuct_scale {
         sfVector2f duck;
+        sfVector2f dog;
     } stuct_scale;
 
 #endif
