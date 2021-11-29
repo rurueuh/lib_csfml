@@ -15,7 +15,6 @@ stuct_rect ressource_rect(void)
     stuct_rect rect;
     rect.duck = ruru_create_intrect(0, 90, 26, 18);
 
-
     return rect;
 }
 
@@ -34,4 +33,16 @@ stuct_sprite ressource_sprite(stuct_rect rect)
     sprite.duck = ruru_create_sprite_r("michel/sheet.png", 0, 0, rect.duck);
     ressource_scale(sprite);
     return sprite;
+}
+
+stuct_clock ressource_clock(void)
+{
+    stuct_clock clock;
+    clock.clock = sfClock_create();
+    
+    clock.duck_anim1 = ruru_create_intrect(28, 90 , 27, 17);
+    clock.duck_anim2 = ruru_create_intrect(0, 90 , 26, 18);
+    clock.duck_anim3 = ruru_create_intrect(60, 89 , 25, 21);
+
+    return clock;
 }

@@ -23,6 +23,14 @@
         sfIntRect duck;
     } stuct_rect;
 
+    typedef struct stuct_clock {
+        sfTime time;
+        sfIntRect duck_anim1;
+        sfIntRect duck_anim2;
+        sfIntRect duck_anim3;
+        sfClock* clock;
+    } stuct_clock;
+
     typedef struct stuct_vector {
         sfVector2f ruru;
     } stuct_vector;

@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.h>
 #include <SFML/Window.h>
+#include "mystruct.h"
 
 #ifndef header_graph
     #define header_graph
@@ -21,6 +22,7 @@
     sfVector2i ruru_create_vector2i(int x, int y);
     sfVector2f ruru_create_vector2f(float x, float y);
 
+    sfIntRect ruru_anim_3_frames(stuct_clock clock, sfSprite* sprite);
 
     sfBool ruru_mouse_touch_sprite(sfRenderWindow* window, sfSprite* sprite);
     sfSprite* ruru_mouse_move_cursor(sfRenderWindow* window, sfSprite* sprite);

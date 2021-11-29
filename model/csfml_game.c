@@ -18,12 +18,15 @@ int main(void)
     sfRenderWindow* window = ruru_create_window(1920, 1080, 144, sfTrue);
     sfEvent event;
     stuct_sprite sprite = ressource_sprite(ressource_rect());
+    stuct_clock clock = ressource_clock();
     if (startscreen(window, event) == 1)
-        return;
+        return 0;
     while (sfRenderWindow_isOpen(window)){
         while (sfRenderWindow_pollEvent(window, &event)){
             ruru_event_close(window, event);
         }
+        anim_3_frames(clock, sprite.duck);
+        ruru_draw_sprite(window, 1, sprite.duck);
     }
     return 0;
 }
