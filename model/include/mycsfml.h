@@ -22,7 +22,7 @@
     sfVector2i ruru_create_vector2i(int x, int y);
     sfVector2f ruru_create_vector2f(float x, float y);
 
-    sfIntRect ruru_anim_3_frames(stuct_clock clock, sfSprite* sprite);
+    void ruru_anim_3_frames(stuct_clock clock, sfSprite* sprite, float sec);
 
     sfBool ruru_mouse_touch_sprite(sfRenderWindow* window, sfSprite* sprite);
     sfSprite* ruru_mouse_move_cursor(sfRenderWindow* window, sfSprite* sprite);

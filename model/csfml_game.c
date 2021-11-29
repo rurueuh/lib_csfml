@@ -25,7 +25,7 @@ int main(void)
         while (sfRenderWindow_pollEvent(window, &event)){
             ruru_event_close(window, event);
         }
-        anim_3_frames(clock, sprite.duck);
+        ruru_anim_3_frames(clock, sprite.duck, 0.3);
         ruru_draw_sprite(window, 1, sprite.duck);
     }
     return 0;

@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include "../../include/mystruct.h"
 
-void ruru_anim_3_frames(stuct_clock clock, sfSprite* sprite)
+void ruru_anim_3_frames(stuct_clock clock, sfSprite* sprite, float time)
 {
     clock.time = sfClock_getElapsedTime(clock.clock);
     float sec = clock.time.microseconds / 1000000.0;
@@ -18,13 +18,13 @@ void ruru_anim_3_frames(stuct_clock clock, sfSprite* sprite)
     if (sec >= 0.0){
         rect = clock.duck_anim1;
     }
-    if (sec >= 0.5){
+    if (sec >= (time * 1)){
         rect = clock.duck_anim2;
     }
-    if (sec >= 1){
+    if (sec >= (time * 2)){
         rect = clock.duck_anim3;
     }
-    if (sec >= 1.5){
+    if (sec >= (time * 3)){
         sfClock_restart(clock.clock);
     }
     sfSprite_setTextureRect(sprite, rect);
