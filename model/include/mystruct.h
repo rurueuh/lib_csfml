@@ -12,37 +12,45 @@
     #define csfml_struct
     
     typedef struct stuct_sprite {
-        sfSprite* duck;
-        sfSprite* dog;
-        sfSprite* mouse;
-        sfSprite* map;
+        sfSprite* ruru;
         
     } stuct_sprite;
+
+    typedef struct stuct_texture {
+        sfTexture* ruru;
+        
+    } stuct_texture;
 
     typedef struct stuct_sound {
 
     } stuct_sound;
 
     typedef struct stuct_rect {
-        sfIntRect duck;
-        sfIntRect dog;
+
     } stuct_rect;
 
-    typedef struct stuct_anim_duck {
+    typedef struct stuct_anim {
         sfTime time;
-        sfIntRect duck_anim1;
-        sfIntRect duck_anim2;
-        sfIntRect duck_anim3;
+        sfIntRect anim1;
+        sfIntRect anim2;
+        sfIntRect anim3;
         sfClock* clock;
-    } stuct_anim_duck;
+    } stuct_anim;
 
-    typedef struct stuct_vector {
-        sfVector2f ruru;
-    } stuct_vector;
+    typedef struct stuct_stats {
+    } stuct_stats;
 
     typedef struct stuct_scale {
-        sfVector2f duck;
-        sfVector2f dog;
+
     } stuct_scale;
+
+    typedef struct stuct_struct {
+        struct stuct_scale *scale;
+        struct stuct_stats *stats;
+        struct stuct_anim *anim;
+        struct stuct_rect *rect;
+        struct stuct_texture *texture;
+        struct stuct_sprite *sprite;
+    } stuct_struct;
 
 #endif

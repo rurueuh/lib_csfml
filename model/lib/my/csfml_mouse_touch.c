@@ -26,3 +26,20 @@ sfBool ruru_mouse_touch_sprite(sfRenderWindow* window, sfSprite* sprite)
         }
     }
 }
+
+sfBool ruru_mouse_touch_text(sfRenderWindow* window, sfText* text)
+{
+    if (sfMouse_isButtonPressed(sfMouseLeft)){
+        sfFloatRect rect_text = sfText_getGlobalBounds(text);
+        sfVector2f mouse = ruru_convert_2i_to_2f(
+            sfMouse_getPositionRenderWindow(window));
+        if (mouse.x >= rect_text.left
+        && mouse.x < rect_text.left + rect_text.width
+        && mouse.y >= rect_text.top
+        && mouse.y < rect_text.top + rect_text.height ){
+            return sfTrue;
+        } else {
+            return sfFalse;
+        }
+    }
+}

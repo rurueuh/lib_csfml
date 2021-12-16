@@ -7,51 +7,67 @@
 
 #include <SFML/Graphics.h>
 #include <SFML/Window.h>
+#include <SFML/Graphics.h>
+#include <time.h>
+#include <stdlib.h>
 #include "include/mycsfml.h"
 #include "include/mystruct.h"
 
-stuct_rect ressource_rect(void)
+stuct_rect *ressource_rect(void)
 {
-    stuct_rect rect;
-    rect.duck = ruru_create_intrect(0, 90, 26, 18);
-    rect.dog = ruru_create_intrect(146, 47, 23, 29);
+    stuct_rect *rect = malloc(sizeof(stuct_rect));
 
     return rect;
 }
 
-stuct_scale ressource_scale(stuct_sprite sprite, sfRenderWindow* window)
+stuct_scale *ressource_scale(stuct_sprite *sprite, sfRenderWindow* window)
 {
-    stuct_scale scale;
-    scale.duck = ruru_create_vector2f(4, 4);
-    ruru_scale_sprite(sprite.duck, scale.duck.x, scale.duck.y);
-
-    scale.dog = ruru_create_vector2f(6, 6);
-    ruru_scale_sprite(sprite.dog, scale.dog.x, scale.dog.y);
-
-    ruru_scale_fullscreen(window, sprite.map);
+    stuct_scale *scale = malloc(sizeof(stuct_scale));
 
     return scale;
 }
 
-stuct_sprite ressource_sprite(stuct_rect rect, sfRenderWindow* window)
+stuct_texture *ressource_texture(void)
 {
-    stuct_sprite sprite;
-    sprite.duck = ruru_create_sprite_r("michel/sheet.png", 0, 0, rect.duck);
-    sprite.dog = ruru_create_sprite_r("michel/sheet.png", 0, 0, rect.dog);
-    sprite.mouse = ruru_create_cursor(window, "michel/scope.png");
-    sprite.map = ruru_create_sprite("michel/stage.png", 0, 0);
-    ressource_scale(sprite, window);
+    stuct_texture *texture = malloc(sizeof(stuct_texture));
+    texture->ruru = sfTexture_createFromFile("michel/stage_background.png", NULL);
+    return texture;
+}
+
+stuct_sprite *ressource_sprite(stuct_rect *rect, stuct_texture *texture,
+sfRenderWindow* window)
+{
+    stuct_sprite *sprite = malloc(sizeof(stuct_sprite));
+    sprite->ruru = ruru_create_sprite_texture(texture->ruru, 0, 0);
     return sprite;
 }
 
-stuct_anim_duck ressource_anim_duck(void)
+stuct_anim *ressource_anim(void)
 {
-    stuct_anim_duck clock;
-    clock.clock = sfClock_create();
+    stuct_anim *clock = malloc(sizeof(stuct_anim));
+    clock->clock = sfClock_create();
     
-    clock.duck_anim1 = ruru_create_intrect(28, 90 , 27, 17);
-    clock.duck_anim2 = ruru_create_intrect(0, 90 , 26, 18);
-    clock.duck_anim3 = ruru_create_intrect(60, 89 , 25, 21);
+    clock->anim1 = ruru_create_intrect(28, 90 , 27, 17);
+    clock->anim2 = ruru_create_intrect(0, 90 , 26, 18);
+    clock->anim3 = ruru_create_intrect(60, 89 , 25, 21);
 
     return clock;
+}
+
+stuct_stats *ressource_stats(void)
+{
+    stuct_stats *stats = malloc(sizeof(stuct_stats));
+    return stats;
+}
+
+stuct_struct *ressource_struct(sfRenderWindow* window)
+{
+    stuct_struct *stuct = malloc(sizeof(stuct_struct));
+    stuct->rect = ressource_rect();
+    stuct->texture = ressource_texture();
+    stuct->sprite = ressource_sprite(stuct->rect, stuct->texture, window);
+    stuct->scale = ressource_scale(stuct->sprite, window);
+    stuct->anim = ressource_anim();
+    stuct->stats = ressource_stats();
+    return stuct;
 }

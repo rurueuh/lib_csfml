@@ -13,30 +13,29 @@
 #include "include/mygame.h"
 #include "include/mystruct.h"
 
-void draw_sprite(sfRenderWindow* window, stuct_sprite sprite)
+void draw_sprite(sfRenderWindow* window, stuct_sprite *sprite)
 {
     sfRenderWindow_clear(window, sfBlack);
-    sfRenderWindow_drawSprite(window, sprite.map, NULL);
-    sfRenderWindow_drawSprite(window, sprite.duck, NULL);
-    sfRenderWindow_drawSprite(window, sprite.mouse, NULL);
+    sfRenderWindow_drawSprite(window, sprite->ruru, NULL);
+
     sfRenderWindow_display(window);
 }
 
+// trop de func dans ressources
+
 int main(void)
 {
-    sfRenderWindow* window = ruru_create_window(1920, 1080, 144, sfTrue);
+    sfRenderWindow* window = ruru_create_window(1920, 1080, 144, sfFalse);
     sfEvent event;
-    stuct_sprite sprite = ressource_sprite(ressource_rect(), window);
-    stuct_anim_duck clock = ressource_anim_duck();
-    if (startscreen(window, event) == 1)
-        return 0;
+    stuct_struct *all = ressource_struct(window);
+
+    //if (startscreen(window, event) == 1)
+    //    return 0;
     while (sfRenderWindow_isOpen(window)){
-        while (sfRenderWindow_pollEvent(window, &event)){
-            ruru_event_close(window, event);
-            ruru_mouse_move_cursor(window, sprite.mouse);
-        }
-        ruru_anim_3_frames(clock, sprite.duck, 0.3);
-        draw_sprite(window, sprite);
+        if (event_gestion(all, window, event) == 1)
+            return 0;
+        draw_sprite(window, all->sprite);
     }
+
     return 0;
 }

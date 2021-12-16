@@ -13,19 +13,25 @@
     #define header_graph
     sfRenderWindow* ruru_create_window(int width, int height, int fps,
     sfBool fullscreen);
-    sfSprite* ruru_create_sprite_r(char *path, int pos_x, int pos_y,
+    sfSprite* ruru_create_sprite_rp(char *path, int pos_x, int pos_y,
     sfIntRect r);
+    sfSprite* ruru_create_sprite_r(char *path, int pos_x, int pos_y,
+    sfIntRect rect);
     sfSprite* ruru_create_sprite(char *path, int pos_x, int pos_y);
-    sfText* ruru_create_text(int pos_x, int pos_y, char *str, int police_size);
+    sfSprite* ruru_create_sprite_texture(sfTexture *texture,
+    int pos_x, int pos_y);
+    sfSprite* ruru_create_sprite_texture_r(sfTexture* texture, int pos_x,
+    int pos_y, sfIntRect r);
+    sfText* ruru_create_text(int pos_x, int pos_y, char *str, sfFont* font);
     sfIntRect ruru_create_intrect(int left, int top, int width, int height);
     sfVector2u ruru_create_vector2u(unsigned int x, unsigned int y);
     sfVector2i ruru_create_vector2i(int x, int y);
     sfVector2f ruru_create_vector2f(float x, float y);
 
-    void ruru_anim_3_frames(stuct_anim_duck clock, sfSprite* sprite,
-    float sec);
+    void ruru_anim_3_frames(stuct_anim *clock, sfSprite* sprite, float sec);
 
     sfBool ruru_mouse_touch_sprite(sfRenderWindow* window, sfSprite* sprite);
+    sfBool ruru_mouse_touch_text(sfRenderWindow* window, sfText* text);
     sfSprite* ruru_mouse_move_cursor(sfRenderWindow* window, sfSprite* sprite);
     sfSprite* ruru_create_cursor(sfRenderWindow* window, char *path);
 

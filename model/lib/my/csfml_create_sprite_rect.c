@@ -18,3 +18,14 @@ sfSprite* ruru_create_sprite_r(char *path, int pos_x, int pos_y, sfIntRect r)
     sfSprite_setPosition(sprinte, pos);
     return sprinte;
 }
+
+sfSprite* ruru_create_sprite_texture_r(sfTexture* texture, int pos_x,
+int pos_y, sfIntRect r)
+{
+    sfSprite* sprinte = sfSprite_create();
+    sfSprite_setTexture(sprinte, texture, sfTrue);
+    sfSprite_setTextureRect(sprinte, r);
+    sfVector2f pos = {(float) pos_x, (float) pos_y};
+    sfSprite_setPosition(sprinte, pos);
+    return sprinte;
+}

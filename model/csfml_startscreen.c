@@ -49,8 +49,9 @@ int move_selector(sfText* selector, sfRenderWindow* window, sfEvent event)
 int startscreen_select(sfRenderWindow* window, sfEvent event, sfText* selector,
 sfSprite* menu)
 {
-    sfText* option1 = ruru_create_text(800, 600, "- PLAY !", 60);
-    sfText* option2 = ruru_create_text(800, 700, "- QUIT !", 60);
+    sfFont* font = sfFont_createFromFile("michel/arial.ttf");
+    sfText* option1 = ruru_create_text(800, 600, "- PLAY !", font);
+    sfText* option2 = ruru_create_text(800, 700, "- QUIT !", font);
     sfRenderWindow_clear(window, sfBlack);
     sfRenderWindow_drawText(window, selector, NULL);
     sfRenderWindow_drawText(window, option1, NULL);
@@ -68,7 +69,8 @@ int startscreen(sfRenderWindow* window, sfEvent event)
     sfTime time;
     float seconds;
     int exit = 0;
-    sfText* selector = ruru_create_text(700, 600, ">", 60);
+    sfFont* font = sfFont_createFromFile("michel/arial.ttf");
+    sfText* selector = ruru_create_text(700, 600, ">", font);
     sfIntRect rect_title = ruru_create_intrect(0, 0, 678, 272);
     sfSprite* t = ruru_create_sprite_r("michel/l.png", 600, 200, rect_title);
     while (1){
