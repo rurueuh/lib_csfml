@@ -1,3 +1,3 @@
 # lib_csfml
 
-don't copy learn ;)
+this is my old lib csfml for Epitech :p
